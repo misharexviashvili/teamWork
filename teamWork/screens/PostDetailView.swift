@@ -3,6 +3,7 @@ import SwiftUI
 @MainActor
 struct PostDetailView: View {
     let postID: Int
+    var showsAuthorButton = true
 
     @State private var post: Post?
     @State private var comments: [Comment] = []
@@ -34,8 +35,10 @@ struct PostDetailView: View {
                         }
                         .padding(.vertical, 4)
 
-                        Button("ავტორის პროფილი", systemImage: "person.circle") {
-                            authorID = post.userId
+                        if showsAuthorButton {
+                            Button("ავტორის პროფილი", systemImage: "person.circle") {
+                                authorID = post.userId
+                            }
                         }
                     }
 
